@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="script.js" type="module" defer></script>
+    <title>Account</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="display-2 text-primary text-center">MY<i class="fa-solid fa-chart-pie text-secondary"></i>ACCOUNT
+        </h2>
+
+        <div class="alert alert-secondary border-0 text-center mt-5" role="alert" id="balanceAlert">
+            Balance: 0
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <select class="form-select mb-3" aria-label="Default select example" id="type" onchange="optionCheck()">
+                    <option value="">Choose type of action</option>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+
+                <select class="form-select mb-3" aria-label="Default select example" id="incomeSelect"
+                    style="display: none;">
+                    <option value="">Choose income</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Gift">Gift</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <select class="form-select mb-3" aria-label="Default select example" id="expenseSelect"
+                    style="display: none;">
+                    <option selected>Choose expense</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="amount" placeholder="Amount">
+                    <label for="amount">Amount</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control mt-3" id="comments" placeholder="Comments">
+                    <label for="comments">Comments</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="date" class="form-control mt-3" id="date" placeholder="Date">
+                    <label for="date">Date</label>
+                </div>
+
+                <button class="btn btn-primary w-100 mt-3" onclick="addNewAction()">Add</button>
+            </div>
+
+            <div class="col-md-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Comments</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="actions"></tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
